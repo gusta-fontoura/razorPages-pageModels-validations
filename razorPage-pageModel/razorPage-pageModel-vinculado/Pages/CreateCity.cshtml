@@ -1,0 +1,27 @@
+﻿@page
+@model razorPage_pageModel_vinculado.Pages.CreateCityModel
+@{
+
+}
+
+<div class="container mt-4">
+    <h2>Cadastro de cidades</h2>
+
+    <hr />
+
+    <form method="post" class="col-md-6">
+        <div class="form-group mb-3">
+            <label asp-for="CityName" class="form-label">Nome da Cidade:</label>
+            <input asp-for="CityName" class="form-control" placeholder="Ex: Rio de Janeiro" />
+        </div>    
+
+        <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
+
+        @if (!string.IsNullOrEmpty(Model.CityName))
+        {
+            <div class="alert alert-success mt-4">
+                Cidade submetida: <strong>@Model.CityName</strong>
+            </div>
+        }
+    </form>
+</div>
