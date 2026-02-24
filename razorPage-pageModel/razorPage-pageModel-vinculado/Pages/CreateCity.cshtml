@@ -1,27 +1,34 @@
 ﻿@page
 @model razorPage_pageModel_vinculado.Pages.CreateCityModel
-@{
-
-}
 
 <div class="container mt-4">
-    <h2>Cadastro de cidades</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="mb-4">Cadastro de Cidades Turísticas</h2>
 
-    <hr />
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <form method="post" class="col-md-6">
-        <div class="form-group mb-3">
-            <label asp-for="CityName" class="form-label">Nome da Cidade:</label>
-            <input asp-for="CityName" name="cityName" class="form-control" placeholder="Ex: Rio de Janeiro" />
-        </div>    
+                <div class="mb-3">
+                    <label asp-for="Input.CityName" class="form-label">Nome da Cidade:</label>
+                    <input asp-for="Input.CityName" class="form-control" placeholder="Ex: Rio de Janeiro" />
+                    <span asp-validation-for="Input.CityName" class="text-danger"></span>
+                </div>
 
-        <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
+                <button type="submit" class="btn btn-primary">Cadastrar Cidade</button>
+            </form>
 
-        @if (!string.IsNullOrEmpty(Model.CityName))
-        {
-            <div class="alert alert-success mt-4">
-                Cidade submetida: <strong>@Model.CityName</strong>
-            </div>
-        }
-    </form>
+            @if (!string.IsNullOrEmpty(Model.CityNameResult))
+            {
+                <div class="alert alert-success mt-4">
+                    <strong>Sucesso!</strong> @Model.CityNameResult foi cadastrada.
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
