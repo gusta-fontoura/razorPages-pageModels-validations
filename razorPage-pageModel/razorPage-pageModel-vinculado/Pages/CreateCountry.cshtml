@@ -1,4 +1,30 @@
 ﻿@page
-@model razorPage_pageModel_vinculado.Pages.Index1Model
-@{
+@model razorPage_pageModel_vinculado.Pages.CreateCountry
+
+<div class="container mt-4">
+    <form method="post" class="col-md-6">
+        <div class="mb-2">
+            <label asp-for="Input.CountryName"></label>
+            <input asp-for="Input.CountryName" placeholder="Nome do País" class="form-control" />
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Input.CountryCode"></label>
+            <input asp-for="Input.CountryCode" placeholder="Código (Ex: BR)" class="form-control" />
+            <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Criar País</button>
+    </form>
+
+    @if (Model.CreatedCountry != null)
+    {
+        <div class="alert alert-success mt-3">
+            País Criado: @Model.CreatedCountry.CountryName (@Model.CreatedCountry.CountryCode)
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }
