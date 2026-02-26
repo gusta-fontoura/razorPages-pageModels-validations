@@ -6,15 +6,20 @@ namespace razorPage_pageModel_vinculado.Pages
 {
     public class CreateCountry : PageModel
     {
+        //[BindProperty]
+        //public InputModel Input { get; set; }
+
         [BindProperty]
-        public InputModel Input { get; set; }
+        public List<InputModel> Inputs { get; set; }
 
   
         public Country CreatedCountry { get; set; }
+
+        public List<Country> CreatedCountries { get; set; } = new List<Country>();
         public class Country
         {
-            public String CountryName;
-            public String CountryCode;
+            public String CountryName { get; set; }
+            public String CountryCode { get; set; }
 
             public Country(String countryName, String countryCode)
             {
@@ -35,11 +40,33 @@ namespace razorPage_pageModel_vinculado.Pages
 
         }
 
+
+        public void OnGet()
+        {
+            Inputs = new List<InputModel>();
+            for (int i = 0; i < 5; i++)
+            {
+                Inputs.Add(new InputModel());
+            }
+        }
         public void OnPost()
         {
             if (ModelState.IsValid)
             {
-                this.CreatedCountry = new Country(Input.CountryName, Input.CountryCode);
+    
+
+                this.CreatedCountries = new List<Country>();
+
+                foreach (var item in Inputs) 
+                {
+                    
+                    if (!string.IsNullOrEmpty(item.CountryName))
+                    {
+                        
+                        var countryCreated = new Country(item.CountryName, item.CountryCode);
+                        this.CreatedCountries.Add(countryCreated);
+                    }
+                }
             }
         }
     }

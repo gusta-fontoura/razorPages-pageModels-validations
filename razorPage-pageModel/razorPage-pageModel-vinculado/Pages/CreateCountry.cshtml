@@ -3,26 +3,38 @@
 
 <div class="container mt-4">
     <form method="post" class="col-md-6">
-        <div class="mb-2">
-            <label asp-for="Input.CountryName"></label>
-            <input asp-for="Input.CountryName" placeholder="Nome do País" class="form-control" />
-        </div>
+        
+        @for (int i = 0; i < @Model.Inputs.Count; i++)
+        {
+            <div class="mb-2">
+                <label asp-for="Inputs[i].CountryName"></label>
+                <input asp-for="Inputs[i].CountryName" placeholder="Nome do País" class="form-control" />
+            </div>
 
-        <div class="mb-2">
-            <label asp-for="Input.CountryCode"></label>
-            <input asp-for="Input.CountryCode" placeholder="Código (Ex: BR)" class="form-control" />
-            <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Criar País</button>
+            <div class="mb-2">
+                <label asp-for="Inputs[i].CountryCode"></label>
+                <input asp-for="Inputs[i].CountryCode" placeholder="Código (Ex: BR)" class="form-control" />
+                <span asp-validation-for="Inputs[i].CountryCode" class="text-danger"></span>
+            </div>
+        }
+        
+        <button type="submit" class="btn btn-primary">Criar Países</button>
     </form>
 
-    @if (Model.CreatedCountry != null)
+    @if (Model.CreatedCountries != null && Model.CreatedCountries.Any())
     {
-        <div class="alert alert-success mt-3">
-            País Criado: @Model.CreatedCountry.CountryName (@Model.CreatedCountry.CountryCode)
+        <div class="mt-4">
+            <h3>Lista de Países Criados:</h3>
+            @foreach (var c in Model.CreatedCountries)
+            {
+                <div class="alert alert-success">
+                    País Criado: <strong>@c.CountryName</strong> (@c.CountryCode.ToUpper())
+                </div>
+            }
         </div>
     }
+    
+       
 </div>
 
 @section Scripts {
