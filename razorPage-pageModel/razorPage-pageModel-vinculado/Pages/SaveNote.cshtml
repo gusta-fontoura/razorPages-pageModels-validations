@@ -1,0 +1,21 @@
+﻿@page
+@model razorPage_pageModel_vinculado.Pages.SaveNoteModel
+@{
+    <div class="container mt-4">
+        <h2>Criar Nova Nota</h2>
+        <form method="post" class="col-md-6">
+            <div class="mb-3">
+                <label asp-for="Content" class="form-label">Conteúdo da Nota:</label>
+                <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar Nota</button>
+        </form>
+
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="alert alert-success mt-4">
+                @Model.Message
+            </div>
+        }
+    </div>
+}

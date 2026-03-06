@@ -6,8 +6,6 @@ namespace razorPage_pageModel_vinculado.Pages
 {
     public class CreateCountry : PageModel
     {
-        //[BindProperty]
-        //public InputModel Input { get; set; }
 
         [BindProperty]
         public List<InputModel> Inputs { get; set; }
@@ -51,18 +49,30 @@ namespace razorPage_pageModel_vinculado.Pages
         }
         public void OnPost()
         {
+            for (int i = 0; i < Inputs.Count; i++)
+            {
+                var item = Inputs[i];
+
+                if (!string.IsNullOrEmpty(item.CountryName) && !string.IsNullOrEmpty(item.CountryCode))
+                {
+                    char firstLetterName = char.ToUpper(item.CountryName[0]);
+                    char firstLetterCode = char.ToUpper(item.CountryCode[0]);
+
+                    if (firstLetterName != firstLetterCode)
+                    {
+                        ModelState.AddModelError($"Inputs[{i}].CountryCode", "O código deve começar com a mesma letra do país.");
+                    }
+                }
+            }
+
             if (ModelState.IsValid)
             {
-    
-
                 this.CreatedCountries = new List<Country>();
 
-                foreach (var item in Inputs) 
+                foreach (var item in Inputs)
                 {
-                    
                     if (!string.IsNullOrEmpty(item.CountryName))
                     {
-                        
                         var countryCreated = new Country(item.CountryName, item.CountryCode);
                         this.CreatedCountries.Add(countryCreated);
                     }

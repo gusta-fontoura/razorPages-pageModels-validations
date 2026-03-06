@@ -1,0 +1,24 @@
+﻿@page
+@model razorPage_pageModel_vinculado.Pages.ReadNoteModel
+@{
+    <div class="container mt-4">
+        <h2>Notas Salvas</h2>
+
+        @if (Model.FileNames.Any())
+        {
+            <ul class="list-group col-md-4">
+                @foreach (var file in Model.FileNames)
+                {
+                    <li class="list-group-item">
+                        @* O til (~) aponta para a raiz web (wwwroot) *@
+                        <a href="~/files/@file" target="_blank">@file</a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="alert alert-info">Nenhuma nota encontrada. Crie uma nova nota primeiro!</div>
+        }
+    </div>
+}
