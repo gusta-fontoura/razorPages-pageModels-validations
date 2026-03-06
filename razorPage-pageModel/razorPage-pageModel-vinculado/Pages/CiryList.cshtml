@@ -1,0 +1,17 @@
+﻿@page
+@model razorPage_pageModel_vinculado.Pages.CityListModel
+@{
+    <div class="container mt-4">
+        <h2>Selecione uma Cidade</h2>
+        <div class="list-group col-md-4">
+            @foreach (var city in Model.Cities)
+            {
+                <a asp-page="CityDetails"
+                   asp-route-cityName="@city"
+                   class="list-group-item list-group-item-action">
+                    Ver detalhes de @city
+                </a>
+            }
+        </div>
+    </div>
+}
