@@ -1,0 +1,11 @@
+﻿@page "{cityName}"
+@model razorPage_pageModel_vinculado.Pages.CityDetailsModel
+@{
+ <div class="container">
+    <h2>Detalhes da Cidade</h2>
+    <hr />
+    
+    @* A mágica acontece aqui: acessamos a propriedade que definimos no Model *@
+    <p>Você está vendo detalhes de: <strong>@Model.CityName</strong></p>
+</div>
+}

@@ -1,0 +1,41 @@
+[33mcommit cb6cc1a407c5af26138b0abf0b02105024218514[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Wed Feb 25 21:29:25 2026 -0300
+
+    Ex7: Adicionando multiplos inputs
+
+[33mcommit bbbf0772e38eafa48c02ef693378d0e75844d3aa[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Wed Feb 25 20:18:05 2026 -0300
+
+    Ex 6: Validação do ISO input Model.
+
+[33mcommit 1098dc4f8305f3f087684be21ad76c8a36de17cf[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Wed Feb 25 19:59:27 2026 -0300
+
+    Ex 5: Criando o CreatCountry
+
+[33mcommit 9d5f2908e25fe040641947b058ffa9e2ce257e3c[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Tue Feb 24 20:43:24 2026 -0300
+
+    Implementando ex 2 e 3 - validação de input e tratamento de erros.
+
+[33mcommit d76351715854e90292903cd79fd3799067a3d02d[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Mon Feb 23 20:11:24 2026 -0300
+
+    Ex 2 - Retirando o bindPropertys e fazendo atribuição manual.
+
+[33mcommit 9265ab514546e70f7757fc4cbe9d3cfceba6a413[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Mon Feb 23 20:02:52 2026 -0300
+
+    Adicionando ex 1
+
+[33mcommit 59640931def3594209952ad7bc36568411c3368a[m
+Author: GUSTAVO <gustavofont10@gmail.com>
+Date:   Mon Feb 23 20:00:50 2026 -0300
+
+    Configurando ignore e removendo arquivos de cache
